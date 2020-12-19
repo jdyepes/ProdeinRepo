@@ -41,10 +41,12 @@ namespace ProdeinWebApi.Application.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             //TODO: Validate credentials Correctly, this code is only for demo !!
+             
+
             bool isCredentialValid  = (login.Password == "123456");
             if (isCredentialValid)
             {
-                var token = TokenGenerator.GenerateTokenJwt(login.Username);
+                var token = TokenGenerator.GenerateTokenJwt(login.Username);/// TODO por retornar el usuario como objeto con el token y datos de si mismo
                 return Ok(token);
             }
             else
