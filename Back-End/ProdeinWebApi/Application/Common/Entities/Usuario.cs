@@ -7,6 +7,7 @@ namespace ProdeinWebApi.Application.Common.Entities
 {
     public class Usuario : Entidad
     {
+        private string _nombreLogin;
         private string _nombre;
         private string _apellido;
         private string _password;
@@ -16,6 +17,7 @@ namespace ProdeinWebApi.Application.Common.Entities
         private string _direccionIP;
         private string _token;
 
+        public string NombreLogin { get => _nombreLogin; set => _nombreLogin = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public string Password { get => _password; set => _password = value; }

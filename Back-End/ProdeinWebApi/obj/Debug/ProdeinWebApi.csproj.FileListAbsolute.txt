@@ -78,7 +78,6 @@ C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebA
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\System.Web.WebPages.Razor.xml
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\Antlr3.Runtime.pdb
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.csprojAssemblyReference.cache
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.csproj.CoreCompileInputs.cache
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.csproj.CopyComplete
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.dll
@@ -108,3 +107,9 @@ C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebA
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\Microsoft.IdentityModel.Logging.xml
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.Application.Common.Resources.MensajesRespuesta.resources
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.csproj.GenerateResource.cache
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\NLog.config
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\NLog.dll
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\bin\NLog.xml
+C:\Users\jesus\Documents\prodein\AppWeb\Prodein\ProdeinRepo\Back-End\ProdeinWebApi\obj\Debug\ProdeinWebApi.csprojAssemblyReference.cache

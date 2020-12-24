@@ -1,9 +1,11 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Build.Tasks;
+using MySql.Data.MySqlClient;
+using ProdeinWebApi.Application.Common.Exceptions;
+using ProdeinWebApi.Application.Common.Resources;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
 using System.Web;
 
 namespace ProdeinWebApi.Application.Data.DAO
@@ -14,14 +16,14 @@ namespace ProdeinWebApi.Application.Data.DAO
         private MySqlCommand _command;
         private DataTable _dataTable;
         private string _cadena;
-        private int _cantidadRegistros;
+        private int _cantidadRegistros;           
 
         #region parametros de conexion de la base de datos
-        private string servidor = "localhost"; //nombre o ip del servidor
-        private string nombreBd = "proyectoIng"; // nombre de la bd
-        private string usuario = "proyecto";
-        private string password = "proyecto123";
-        private string puerto = "3306";     
+        private string servidor = ConfigurationManager.AppSettings["servidor"].ToString(); //nombre o ip del servidor
+        private string nombreBd = ConfigurationManager.AppSettings["nombreBD"].ToString(); // nombre de la bd
+        private string usuario = ConfigurationManager.AppSettings["usuario"].ToString();
+        private string password = ConfigurationManager.AppSettings["password"].ToString(); 
+        private string puerto = ConfigurationManager.AppSettings["puerto"].ToString();    
         #endregion
 
         public DAO()
@@ -39,8 +41,7 @@ namespace ProdeinWebApi.Application.Data.DAO
         /// </summary>
         private void CrearStringConexion()
         {
-            _cadena = "database=" + nombreBd + ";datasource=" + servidor + ";username=" + usuario + ";password=" + password + ";port=" + puerto + ";"; 
-            //ConfigurationManager.ConnectionStrings["MySqlString"].ConnectionString;
+            _cadena = "database=" + nombreBd + ";datasource=" + servidor + ";username=" + usuario + ";password=" + password + ";port=" + puerto + ";";            
         }
 
         private bool IsConnected()
@@ -56,20 +57,22 @@ namespace ProdeinWebApi.Application.Data.DAO
 
         public bool Conectar()
         {
+            bool res = false;
             try
             {
                 _con = new MySqlConnection(_cadena);
                 _con.Open();
-                return true;
+               res = true;
             }
             catch (MySqlException e)
             {
-                throw e;
+                throw new BaseDeDatosException(DateTime.Now, MensajesRespuesta.ConexionFallida, e);
             }
             catch (Exception e)
             {
-                throw e;
+                throw new ExcepcionGeneral(DateTime.Now, e);        
             }
+            return res;
         }
 
         public void Desconectar()
@@ -89,21 +92,15 @@ namespace ProdeinWebApi.Application.Data.DAO
                 if (!IsConnected())
                     return null;
 
-                _dataTable = new DataTable();
-
-                _dataTable.Load(_command.ExecuteReader());            
-
+                _dataTable = new DataTable();          
+                _dataTable.Load(_command.ExecuteReader());       
                 _cantidadRegistros = _dataTable.Rows.Count;
 
             }
-            catch (MySqlException exc)
+            catch (Exception exc)
             {               
                 throw new ArgumentNullException("Error al ejecutar el StoredProcedure " + exc);
-            }
-            catch (Exception)
-            {               
-                throw;
-            }
+            }            
             finally
             {
                 Desconectar();
@@ -127,14 +124,10 @@ namespace ProdeinWebApi.Application.Data.DAO
 
                 return filasAfectadas;
             }
-            catch (MySqlException exc)
+            catch (Exception exc)
             {               
                 throw new ArgumentNullException("Error al ejecutar el StoredProcedure " + exc);
-            }
-            catch (Exception)
-            {              
-                throw;
-            }
+            }           
             finally
             {
                 Desconectar();
@@ -149,14 +142,11 @@ namespace ProdeinWebApi.Application.Data.DAO
             try
             {
                 if (!IsConnected())
-                    return null;
+                    return null;               
 
-                _command = new MySqlCommand("select * from " + sp, _con);
-            }
-            catch (MySqlException e)
-            {
-                throw e;
-            }
+                _command = new MySqlCommand(sp, _con);
+                _command.CommandType = CommandType.StoredProcedure;
+            }          
             catch (Exception e)
             {
                 throw e;
@@ -169,19 +159,11 @@ namespace ProdeinWebApi.Application.Data.DAO
         {
             try
             {
-                _command.Parameters.AddWithValue("@" + nombre, valor);
-            }
-            catch (MySqlException e)
+                _command.Parameters.Add(new MySqlParameter("@" +nombre, valor));
+            }         
+            catch (Exception ex)
             {
-                throw e;
-            }
-            catch (NullReferenceException)
-            {
-                throw new NullReferenceException();
-            }
-            catch (Exception)
-            {
-                throw new Exception();
+                throw ex;
             }
         }
         public int GetInt(int fila, int columna)

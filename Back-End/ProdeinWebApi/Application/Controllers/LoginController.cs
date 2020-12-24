@@ -1,5 +1,10 @@
-﻿using ProdeinWebApi.Application.Business_Logic.Token;
+﻿using ProdeinWebApi.Application.Business_Logic.Command;
+using ProdeinWebApi.Application.Business_Logic.Factory;
+using ProdeinWebApi.Application.Business_Logic.Token;
 using ProdeinWebApi.Application.Common.Entities;
+using ProdeinWebApi.Application.Common.Exceptions;
+using ProdeinWebApi.Application.Common.Logger;
+using ProdeinWebApi.Application.Common.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,26 +38,44 @@ namespace ProdeinWebApi.Application.Controllers
             return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
         }
 
+
         [HttpPost]
         [Route("authenticate")]
-        public IHttpActionResult Authenticate(LoginRequest login)
+        public HttpResponseMessage Authenticate(Usuario login)
         {
-            if (login == null)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-
-            //TODO: Validate credentials Correctly, this code is only for demo !!
-             
-
-            bool isCredentialValid  = (login.Password == "123456");
-            if (isCredentialValid)
+            try
             {
-                var token = TokenGenerator.GenerateTokenJwt(login.Username);/// TODO por retornar el usuario como objeto con el token y datos de si mismo
-                return Ok(token);
+                if (string.IsNullOrEmpty(login.NombreLogin))
+                   return Request.CreateResponse(HttpStatusCode.BadRequest, MensajesRespuesta.LoginNulo);        
+
+                Comando comando = FabricaComando.CrearComandoConsultarUsuarioLogin(login);
+                comando.Ejecutar();
+
+                Usuario resp = comando.GetEntidad() as Usuario;
+                bool isCredentialValid = (login.Password == resp.Password);
+                if (isCredentialValid)
+                {
+                    var token = TokenGenerator.GenerateTokenJwt(login.NombreLogin);
+                    resp.Token = token;
+                    return Request.CreateResponse(HttpStatusCode.OK ,resp);
+                }
+                else
+                {
+                    Log.WarmFormat("Datos recibidos incorrectos. " + MensajesRespuesta.CredencialesInvalidas);
+                    return Request.CreateResponse(HttpStatusCode.Unauthorized, MensajesRespuesta.CredencialesInvalidas);                    
+                }
             }
-            else
+            catch (BaseDeDatosException ex)
             {
-                return Unauthorized();
+                Log.ErrorFormat("Ha ocurrido un error en LoginController. Mensaje: {0} | Usuario: {1} | Exception: {2}", ex.Mensaje, login.NombreLogin, ex.Excepcion.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Mensaje, ex);
             }
+            catch (ExcepcionGeneral ex)
+            {
+                Log.ErrorFormat("Exepcion general. Mensaje excepcion: {0} | Trace: {1} | Exception: {2} ", ex.Message, ex.StackTrace, ex.Excepcion.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Mensaje, ex);
+            }
+           
         }
     }
 }

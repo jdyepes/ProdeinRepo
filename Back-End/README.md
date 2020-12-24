@@ -2,7 +2,7 @@
 
 ### > Fecha: sab 5/dic/2020
 ### > Creado por Jesus Yepes
-### > Participante: Boris Arteta
+### > En conjunto con: Boris Arteta
 ### > Fundacion Abc Prodein
 ### > Aplicacion Web Administrativa
 
