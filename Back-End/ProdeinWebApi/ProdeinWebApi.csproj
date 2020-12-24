@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.6.8.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
@@ -59,12 +60,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.20\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.7.6\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -145,11 +152,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Business_Logic\Command\Comando.cs" />
+    <Compile Include="Application\Business_Logic\Command\Usuario\ComandoConsultarUsuarioLogin.cs" />
+    <Compile Include="Application\Business_Logic\Factory\FabricaComando.cs" />
     <Compile Include="Application\Business_Logic\Token\TokenGenerator.cs" />
     <Compile Include="Application\Business_Logic\Token\TokenValidationHandler.cs" />
+    <Compile Include="Application\Common\Entities\Entidad.cs" />
+    <Compile Include="Application\Common\Entities\Fabrica\FabricaEntidades.cs" />
     <Compile Include="Application\Common\Entities\LoginRequest.cs" />
+    <Compile Include="Application\Common\Entities\Usuario.cs" />
+    <Compile Include="Application\Common\Exceptions\BaseDeDatosException.cs" />
+    <Compile Include="Application\Common\Exceptions\ExcepcionGeneral.cs" />
+    <Compile Include="Application\Common\Exceptions\UsuarioNoEncontradoException.cs" />
+    <Compile Include="Application\Common\Logger\Log.cs" />
+    <Compile Include="Application\Common\Resources\MensajesRespuesta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MensajesRespuesta.resx</DependentUpon>
+    </Compile>
     <Compile Include="Application\Controllers\CustomerController.cs" />
     <Compile Include="Application\Controllers\LoginController.cs" />
+    <Compile Include="Application\Data\DAO\DAO.cs" />
+    <Compile Include="Application\Data\DAO\DAOUsuario.cs" />
+    <Compile Include="Application\Data\Factory\FabricaDao.cs" />
+    <Compile Include="Application\Data\DAO\Interface\IDAO.cs" />
+    <Compile Include="Application\Data\DAO\Interface\IDAOUsuario.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -224,6 +251,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -250,11 +283,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Business_Logic\Command\" />
-    <Folder Include="Application\Business_Logic\Factory\" />
-    <Folder Include="Application\Common\Exceptions\" />
-    <Folder Include="Application\Data\DAO\" />
-    <Folder Include="Application\Data\Factory\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +313,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Application\Common\Resources\MensajesRespuesta.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MensajesRespuesta.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
