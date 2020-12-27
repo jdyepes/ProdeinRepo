@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ProdeinWebApi.Application.Controllers
 {
@@ -38,7 +39,7 @@ namespace ProdeinWebApi.Application.Controllers
             return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
         }
 
-
+       
         [HttpPost]
         [Route("authenticate")]
         public HttpResponseMessage Authenticate(Usuario login)
@@ -61,14 +62,21 @@ namespace ProdeinWebApi.Application.Controllers
                 }
                 else
                 {
+                    ExcepcionGeneral ex = new ExcepcionGeneral(DateTime.Now, MensajesRespuesta.CredencialesInvalidas);
+                      
                     Log.WarmFormat("Datos recibidos incorrectos. " + MensajesRespuesta.CredencialesInvalidas);
-                    return Request.CreateResponse(HttpStatusCode.Unauthorized, MensajesRespuesta.CredencialesInvalidas);                    
+                    return Request.CreateErrorResponse(HttpStatusCode.Unauthorized, ex.Mensaje, ex);                    
                 }
             }
             catch (BaseDeDatosException ex)
             {
                 Log.ErrorFormat("Ha ocurrido un error en LoginController. Mensaje: {0} | Usuario: {1} | Exception: {2}", ex.Mensaje, login.NombreLogin, ex.Excepcion.Message);
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Mensaje, ex);
+            }
+            catch(UsuarioNoEncontradoException ex)
+            {
+                Log.WarmFormat("El Usuario recibido: {1} en LoginController no se encontro. Mensaje: {0} | Exception: {2}", ex.Mensaje, login.NombreLogin);
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex.Mensaje, ex);
             }
             catch (ExcepcionGeneral ex)
             {

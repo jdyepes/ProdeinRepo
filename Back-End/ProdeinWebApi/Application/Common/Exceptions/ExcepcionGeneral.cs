@@ -11,6 +11,12 @@ namespace ProdeinWebApi.Application.Common.Exceptions
         private DateTime _fechaHora;   //Hora y fecha de cuando se genero la excepción.
         private string _mensaje;       //Breve descripción de la excepción genereda.
 
+        public ExcepcionGeneral(DateTime fechaHora, string mensaje)
+        {
+            _fechaHora = fechaHora;
+            _mensaje = mensaje;
+        }
+
         public ExcepcionGeneral(DateTime fechaHora, Exception excepcion)        
         {
             _excepcion = excepcion;

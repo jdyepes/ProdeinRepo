@@ -60,8 +60,8 @@ namespace ProdeinWebApi.Application.Data.DAO
                
             }
            
-            if (user == null)
-                throw new UsuarioNoEncontradoException(user.Id, user.Rol, DateTime.Now, MensajesRespuesta.UsuarioNoEncontrado);
+            if (cantidadRegistros == 0)
+                throw new UsuarioNoEncontradoException( DateTime.Now, MensajesRespuesta.UsuarioNoEncontrado);
            
             return user;
         }
