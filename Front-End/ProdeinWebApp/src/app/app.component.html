@@ -1,22 +1,16 @@
+<router-outlet *ngIf="!mostrar"></router-outlet> 
+<!--Flag para mostrar/ocultar los componentes si esta en el login o dentro del sistema-->
+<div class="dashboard-main-wrapper">   
+    <app-navbar *ngIf="mostrar"></app-navbar>
+    <app-leftsidebar *ngIf="mostrar"></app-leftsidebar>
  
-<div class="dashboard-main-wrapper">
-
-    <app-navbar></app-navbar>
-    <app-leftsidebar></app-leftsidebar>
-    <!--#<app-content>
-        
-    </app-content>-->
-    <div class="dashboard-wrapper">
+    <div *ngIf="mostrar" class="dashboard-wrapper">
         <div class="dashboard-ecommerce">
-    <div class="container-fluid dashboard-content ">
-        <!-- ============================================================== -->
-        <!-- pageheader  -->
-        <!-- ============================================================== -->        
-        <router-outlet></router-outlet>
-    
-    <app-footer></app-footer>
-    
-    </div>
+            <div class="container-fluid dashboard-content ">           
+                <router-outlet></router-outlet>                   
+            </div>            
+        </div>
+        <app-footer></app-footer> 
     </div>
 </div>
  

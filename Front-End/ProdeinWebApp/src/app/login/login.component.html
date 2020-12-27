@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="splash-container">
+    <div class="card">       
+        <div class="card-header text-center">            
+            <a href="../index.html"><img class="logo-img" style="width: 100%; height: 120px; margin-top: -30px;" src="../assets/images/abc_prodein_logo.png" alt="logo"></a>           
+            <h2>Login</h2>
+            <span class="splash-description">Bienvenido</span></div>
+        <div class="card-body">
+
+        <form *ngIf="!isLogged" [formGroup]="form" (ngSubmit)="submit()">
+            
+            <div class="form-group">
+                <label for="NombreLogin">Usuario</label>
+                <input 
+                    formControlName="NombreLogin"
+                    id="NombreLogin" 
+                    type="text" 
+                    class="form-control"
+                    required=true
+                    placeholder="Ingrese su nombre de usuario">
+                <div *ngIf="f.NombreLogin.touched && f.NombreLogin.invalid" class="alert alert-danger">
+                    <div *ngIf="f.NombreLogin.errors?.required">Campo requerido.</div>
+                    <div *ngIf="f.NombreLogin.errors?.minlength">Mínimo debe tener 3 caracteres.</div>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label for="Password">Contraseña</label>
+                <input 
+                    formControlName="Password"
+                    id="Password" 
+                    type="password" 
+                    class="form-control"
+                    placeholder="Ingrese su contraseña">
+                <div *ngIf="f.Password.touched && f.Password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Password.errors?.required">Campo requerido.</div>
+                    <div *ngIf="f.Password.errors?.minlength">Mínimo debe tener 6 caracteres.</div>
+                </div>
+            </div>
+            <hr>                   
+            <br>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Acceder</button>
+            <br>
+            <div class="form-group">                           
+                <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                  Error en Login. {{ errorMessage }}      
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer bg-white p-0  ">
+        <div class="card-footer-item" style="margin-left: 20px; margin-right: 30px;">
+            <a href="#" class="footer-link">Registrar</a></div>
+        <div class="card-footer-item">
+            <a href="#" class="footer-link">Olvidó Contraseña</a>
+        </div>
+    </div>
+</div>
+</div>
