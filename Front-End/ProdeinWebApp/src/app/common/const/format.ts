@@ -5,3 +5,9 @@ export const Format =
     TIME: 'HH:mm',
     DATETIME: 'DD-MM-YYYYTHH:mm:ss'
 }
+
+// Titulo de la pagina
+export const Pages =
+{
+   TITLE: 'SISTEMA PRODEIN'
+}

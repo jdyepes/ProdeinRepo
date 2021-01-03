@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/common/models/usuario';
 import { AuthService } from '../../core/services/auth.service';
 import { TokenStorageService } from '../../core/services/token-storage.service';
   
@@ -11,6 +12,8 @@ import { TokenStorageService } from '../../core/services/token-storage.service';
 })
 export class LoginComponent {
   
+  public usuario : Usuario = new Usuario();
+
   constructor( private authService: AuthService, 
                private tokenStorage: TokenStorageService,
                private router: Router) { }

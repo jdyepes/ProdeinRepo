@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../../core/services/token-storage.service';
+import { Pages } from '../../const/format';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +10,21 @@ import { TokenStorageService } from '../../../core/services/token-storage.servic
 })
 export class NavbarComponent implements OnInit {
 
+  title?: string; // titulo de la pagina
+  public usuario : Usuario = new Usuario();
+
   constructor( private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.title = Pages.TITLE;
+    this.cargarUsuario();
+  }
+
+  cargarUsuario() :void {
+    let user = this.tokenStorageService.getUser();
+    this.usuario.nombre = user.Nombre;
+    this.usuario.apellido = user.Apellido;
+    console.log(this.usuario);
   }
 
   logout(): void { // Por hacer mensaje de confirmacion al salir la sesion
