@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from "@angular/common";
-import { TokenStorageService } from './services/token-storage.service';
+import { TokenStorageService } from './core/services/token-storage.service';
 
 @Component({
   selector: 'root',
