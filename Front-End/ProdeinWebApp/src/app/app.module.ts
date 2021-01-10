@@ -10,7 +10,15 @@ import { authInterceptorProviders } from './core/helpers/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
-
+import { PersonasComponent } from './pages/personas/personas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,14 +26,26 @@ import { LoginComponent } from './pages/login/login.component';
     LoginComponent,
     NavbarComponent,
     LeftsidebarComponent,
-    FooterComponent
+    FooterComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,   
     AppRoutingModule,  
-    HttpClientModule
+    HttpClientModule, 
+    BrowserAnimationsModule,
+
+
+    MatTreeModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule
+
   ],
   
   providers: [
