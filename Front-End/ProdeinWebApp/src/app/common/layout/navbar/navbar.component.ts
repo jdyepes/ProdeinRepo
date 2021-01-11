@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor( private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.title = Pages.TITLE;
+    this.title = Pages.TITLE;//contante del titulo
     this.cargarUsuario();
   }
 

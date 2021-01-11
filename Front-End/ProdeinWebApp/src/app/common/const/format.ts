@@ -9,5 +9,6 @@ export const Format =
 // Titulo de la pagina
 export const Pages =
 {
-   TITLE: 'SISTEMA PRODEIN'
+   TITLE: 'SISTEMA PRODEIN',
+   FOOTER: 'Copyright © ' + new Date().getFullYear() + ' Prodein. Todos los derechos reservados.'
 }
