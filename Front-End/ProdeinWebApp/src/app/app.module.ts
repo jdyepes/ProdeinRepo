@@ -12,13 +12,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { PersonasComponent } from './pages/personas/personas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTreeModule} from '@angular/material/tree';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormvinculacionComponent } from './pages/formvinculacion/formvinculacion.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NavbarComponent,
     LeftsidebarComponent,
     FooterComponent,
-    PersonasComponent
+    PersonasComponent,
+    FormvinculacionComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatTabsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule
 
   ],
   
