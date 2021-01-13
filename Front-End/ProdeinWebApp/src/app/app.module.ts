@@ -7,7 +7,7 @@ import { LeftsidebarComponent } from './common/layout/leftsidebar/leftsidebar.co
 import { FooterComponent } from './common/layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './core/helpers/auth.interceptor';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { PersonasComponent } from './pages/personas/personas.component';
@@ -19,8 +19,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+<<<<<<< HEAD
 import { FormvinculacionComponent } from './pages/formvinculacion/formvinculacion.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+=======
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button'
+>>>>>>> 16ee56058a08209f99338d14dc093be4d92df31a
 
 @NgModule({
   declarations: [
@@ -40,8 +45,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AppRoutingModule,  
     HttpClientModule, 
     BrowserAnimationsModule,
-
-
     MatTreeModule,
     MatTooltipModule,
     MatSelectModule,
@@ -49,8 +52,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
+<<<<<<< HEAD
     MatDatepickerModule
 
+=======
+    MatIconModule,
+    MatButtonModule
+>>>>>>> 16ee56058a08209f99338d14dc093be4d92df31a
   ],
   
   providers: [
