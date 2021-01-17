@@ -1,7 +1,3 @@
-mat-form-field {
-    margin-right: 12px;
-  }
-
-  mat-form-field {
-    margin-right: 12px;
-  }
+.example-card {
+  max-width: 250px;
+}

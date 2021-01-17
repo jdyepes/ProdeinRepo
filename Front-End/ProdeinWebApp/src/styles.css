@@ -14246,3 +14246,8 @@ table {
 mat-form-field {
   margin-right: 12px;
 }
+
+mat {
+  width: 100%;
+
+}

@@ -1,3 +1,8 @@
+Código<mat-card class="example-card">Usuario seleccionado</mat-card> 
+Nombre<mat-card class="example-card">Persona natural</mat-card> 
+Razón Social<mat-card class="example-card">Solo persona jurídica</mat-card>
+
+
 <mat-form-field appearance="fill">
     
     <mat-label>Egresado</mat-label>
@@ -10,4 +15,15 @@
 </mat-form-field>
 
 
+
+<mat-form-field appearance="fill">
+    
+  <mat-label>SELECCIONA CENTRO</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let centro of centros" [value]="centro.value">
+      {{centro.viewValue}}
+    </mat-option>
+  </mat-select>
+  
+</mat-form-field>
 

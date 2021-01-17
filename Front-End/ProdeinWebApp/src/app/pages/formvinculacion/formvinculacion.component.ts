@@ -9,6 +9,11 @@ interface Food {
  * @title Basic select
  */
 
+interface Centro {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-formvinculacion',
   templateUrl: './formvinculacion.component.html',
@@ -40,4 +45,22 @@ export class FormvinculacionComponent implements OnInit {
    
     
   ];
+  
+  centros: Centro[] = [
+    {value: 'UE NSE-0', viewValue: 'UE NSE'},
+    {value: 'UE MVM-1', viewValue: 'UE MVM'},
+    {value: 'MACA-2', viewValue: 'MACA'},
+    {value: 'NAZARENO-3', viewValue: 'NAZARENO'},
+    {value: 'COCHE-4', viewValue: 'COCHE'},
+    {value: 'ENCANTADO-5', viewValue: 'ENCANTADO'},
+    {value: 'TACARIGUA-6', viewValue: 'TACARIGUA'},
+    {value: 'VALENCIA-7', viewValue: 'VALENCIA'},
+    {value: 'BARQUISIMETO-8', viewValue: 'BARQUISIMETO'},
+    {value: 'LA FLORESTA-9', viewValue: 'LA FLORESTA'},
+    
+   
+    
+  ];
 }
+
+

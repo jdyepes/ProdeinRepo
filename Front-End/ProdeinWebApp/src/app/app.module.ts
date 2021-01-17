@@ -19,13 +19,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-<<<<<<< HEAD
 import { FormvinculacionComponent } from './pages/formvinculacion/formvinculacion.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-=======
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button'
->>>>>>> 16ee56058a08209f99338d14dc093be4d92df31a
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -52,13 +51,11 @@ import { MatButtonModule } from '@angular/material/button'
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-<<<<<<< HEAD
-    MatDatepickerModule
+    MatDatepickerModule,
 
-=======
     MatIconModule,
-    MatButtonModule
->>>>>>> 16ee56058a08209f99338d14dc093be4d92df31a
+    MatButtonModule,
+    MatCardModule
   ],
   
   providers: [
