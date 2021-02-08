@@ -24,7 +24,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
-
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -52,10 +53,11 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatPaginatorModule,
     MatDatepickerModule,
-
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    TextFieldModule,
+    MatNativeDateModule
   ],
   
   providers: [
