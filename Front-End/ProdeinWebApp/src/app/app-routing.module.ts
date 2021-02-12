@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PersonasComponent } from './pages/personas/personas.component';
 import { FormvinculacionComponent } from './pages/formvinculacion/formvinculacion.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 const appRoutes: Routes = [
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'personas', component: PersonasComponent },
-  { path: 'formvinculacion', component: FormvinculacionComponent }
+  { path: 'formvinculacion', component: FormvinculacionComponent },
+  { path: 'prueba', component: PruebaComponent }
 
 ];
 

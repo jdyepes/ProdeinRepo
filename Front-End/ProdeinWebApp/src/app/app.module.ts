@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     LeftsidebarComponent,
     FooterComponent,
     PersonasComponent,
-    FormvinculacionComponent
+    FormvinculacionComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
