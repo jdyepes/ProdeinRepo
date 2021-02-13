@@ -1,13 +1,27 @@
 import { Component, OnInit} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS
+} from "@angular/material-moment-adapter";
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE
+} from "@angular/material/core";
+
+import * as _moment from "moment";
+
+// tslint:disable-next-line:no-duplicate-imports
+import { default as _rollupMoment } from "moment";
+import { DATE_FORMATS } from 'src/app/common/const/format';
+
+const moment = _rollupMoment || _moment;
 
 interface Food {
   value: string;
   viewValue: string;
 }
-
-/**
- * @title Basic select
- */
 
 interface Centro {
   value: string;
@@ -17,22 +31,31 @@ interface Centro {
 @Component({
   selector: 'app-formvinculacion',
   templateUrl: './formvinculacion.component.html',
-  styleUrls: ['./formvinculacion.component.css']
-})
+  styleUrls: ['./formvinculacion.component.css'],
+  providers: [
+    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+    // application's root module. We provide it at the component level here, due to limitations of
+    // our example generation script.
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
 
+    { provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS }
+  ]
+})
 
 export class FormvinculacionComponent implements OnInit  {
 
- 
-
-
+  date = new FormControl(moment());
+  
   constructor() { }
-
-
-
 
   ngOnInit(): void {
   }
+
+  // cambiar nombre boris --
   foods: Food[] = [
     {value: 'Voluntariado(Centros)-0', viewValue: 'Voluntariado(Centros)'},
     {value: 'Adorador(Capillas en que sitio)-1', viewValue: 'Adorador(Capillas en que sitio)'},
@@ -62,7 +85,6 @@ export class FormvinculacionComponent implements OnInit  {
     {value: 'BARQUISIMETO-8', viewValue: 'BARQUISIMETO'},
     {value: 'LA FLORESTA-9', viewValue: 'LA FLORESTA'},
     
-   
     
   ];
 }
