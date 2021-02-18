@@ -4858,7 +4858,7 @@ Borders
 }
 
 .border-3 {
-    border-width: 3px !important;
+    border-width: px !important;
 }
 
 .border-secondary {
@@ -12193,7 +12193,7 @@ Media Query
  * Make sure to include this stylesheet IN ADDITION to the regular fullcalendar.css.
  */
 .fc {
-    max-width: 100% !important; }
+    max-width: 200% !important; }
   
   /* Global Event Restyling
   --------------------------------------------------------------------------------------------------*/

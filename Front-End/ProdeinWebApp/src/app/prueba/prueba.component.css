@@ -1,0 +1,18 @@
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+  }
+
+  .box07{
+    width: 90%;
+  height: 165px;
+    
+  }
+
+  .box17{
+    width: 90%;
+  height: 170px;
+    
+  }
