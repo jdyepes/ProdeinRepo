@@ -1,18 +1,31 @@
 .grid-container {
-    display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-  }
+  display: grid;
+  grid-template-rows: 100px 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  min-width: 800px;
+  max-width: 1920px;
 
-  .box07{
-    width: 90%;
-  height: 165px;
-    
-  }
+  width: 100%;
+  height: 215px;
+}
 
-  .box17{
-    width: 90%;
-  height: 170px;
-    
-  }
+.box07{
+  width: 90%;
+height: 170px;
+  
+}
+
+.box17{
+  width: 100%;
+height: 170%;
+max-width: 100%;
+min-width: 100%;
+
+}
+
+.centerrow{
+  max-width: 1920px;
+  min-width: 800px;
+
+}
