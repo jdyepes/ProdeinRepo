@@ -27,6 +27,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PruebaComponent } from './prueba/prueba.component';
 import { VinculacionabcComponent } from './pages/vinculacionabc/vinculacionabc.component';
+import { DonacionesComponent } from './pages/donaciones/donaciones.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VinculacionabcComponent } from './pages/vinculacionabc/vinculacionabc.c
     FooterComponent,
     PersonasComponent,
     PruebaComponent,
-    VinculacionabcComponent
+    VinculacionabcComponent,
+    DonacionesComponent
   ],
   imports: [
     BrowserModule,

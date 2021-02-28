@@ -1,0 +1,100 @@
+
+<div class="page-header">
+    <h1 class="pageheader-title">Formulario Vinculación ABC Prodein (Alta - Modificar - Baja) </h1>              
+    <div class="page-breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/home" class="breadcrumb-link">Home</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumb-link">Agregar</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Personas</li>
+            </ol>
+        </nav>
+    </div>
+  </div>
+  <div class="card"> 
+    <div class="card-body">
+      <div class="row">                     
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">              
+            <div class="card-body">
+                <ul class="list-group">                      
+                    <mat-form-field>
+                      <mat-label>Código de persona</mat-label>
+                      <input matInput type="text" placeholder="">
+                      <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>  
+                </ul>
+                
+                <ul class="list-group">   
+                    <mat-form-field class="example-full-width">
+                      <mat-label>C.I/RIF/Documento de identidad</mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>                       
+                </ul>
+                <br>
+                <ul class="list-group">
+                  <mat-form-field appearance="fill">      
+                    <mat-label>Moneda</mat-label>
+                    <mat-select>
+                      <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                        {{valor.viewValue}}
+                      </mat-option>
+                    </mat-select>      
+                  </mat-form-field>   
+                </ul>  
+            </div>            
+          </div>
+         
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                            
+              <div class="card-body">
+                  <div class="list-group">
+                    <mat-form-field>
+                      <mat-label>Nombre</mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                  </div>
+                  <div class="list-group"> 
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Apellido 1</mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                  </div>      
+                  <div class="list-group">                     
+                    <button mat-raised-button color="primary" >Limpiar
+                      <mat-icon>refresh</mat-icon>
+                    </button>                    
+                  </div>          
+              </div>                                       
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                  
+              <div class="card-body">
+                <div class="list-group"> 
+                  <mat-form-field >
+                    <mat-label>País</mat-label>
+                    <input matInput placeholder="">
+                    <mat-icon matSuffix>search</mat-icon>
+                  </mat-form-field>
+                </div>              
+                <div class="list-group"> 
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Apellido 2</mat-label>
+                    <input matInput placeholder="">
+                    <mat-icon matSuffix>search</mat-icon>
+                  </mat-form-field> 
+                </div>   
+                <div class="list-group">                     
+                  <button mat-stroked-button color="primary" style="margin-top: 30px; margin-left: auto;margin-right: auto;">
+                    Búsqueda Avanzada
+                    <mat-icon>subdirectory_arrow_right</mat-icon>
+                  </button>                    
+                </div>                
+              </div>                           
+          </div>
+      </div>
+    </div>
+  </div> 
+     
+  
