@@ -29,3 +29,9 @@ min-width: 100%;
   min-width: 800px;
 
 }
+
+.centeredes{
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
