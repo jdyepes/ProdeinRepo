@@ -1,0 +1,263 @@
+
+<div class="page-header">
+    <h1 class="pageheader-title">Formulario Vinculación ABC Prodein (Alta - Modificar - Baja) </h1>              
+    <div class="page-breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/home" class="breadcrumb-link">Home</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumb-link">Agregar</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Personas</li>
+            </ol>
+        </nav>
+    </div>
+  </div>
+  <div class="card"> 
+    <div class="card-body">
+      <div class="row">           
+       
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">      
+           
+            <div class="card-body">
+                <ul class="list-group">  <b>Codigo  </b>                     
+                    <mat-form-field>
+                      <mat-label></mat-label>
+                      <input matInput type="text" placeholder="">
+                      <mat-icon matSuffix></mat-icon>
+                    </mat-form-field>  
+                </ul>
+                 
+                <ul class="list-group" ><b>Nombre  </b>                 
+                   <mat-form-field class="example-full-width"> 
+                     <mat-label></mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix></mat-icon>
+                    </mat-form-field>                       
+                </ul>
+                <br>
+                 
+            </div>            
+          </div>
+         
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                            
+              <div class="card-body">
+                  <div class="list-group">
+                    <b>Apellido 1 </b> 
+                    <mat-form-field>
+                      <mat-label></mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix></mat-icon>
+                    </mat-form-field>
+                  </div>
+                  <div class="list-group"> 
+                    <b>Apellido 2 </b> 
+                    <mat-form-field class="example-full-width">
+                      <mat-label></mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix></mat-icon>
+                    </mat-form-field>
+                  </div>      
+                        
+              </div>                                       
+          </div>
+  
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                            
+          <br>  <div class="card-body">
+                  <div class="list-group">
+                    <b>Razón Social </b> 
+                    <mat-form-field class="example-full-width">
+                      <mat-label></mat-label>
+                      <input matInput placeholder="">
+                      <mat-icon matSuffix></mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+        </div>
+      </div>
+  
+      
+  
+    </div>
+  </div>
+     
+   
+  <div class="card"> 
+    <div class="card-body">
+      <div class="row">                
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">               
+            <div class="card-body box03">
+                <ul class="list-group">       
+                  <b>Relación del Vínculo </b> 
+                  <mat-form-field appearance="fill"> 
+                    <mat-label>Egresado</mat-label>
+                    <mat-select>
+                      <mat-option color="primary" *ngFor="let valor of foods" [value]="valor.value">
+                          {{valor.viewValue}}
+                      </mat-option>
+                    </mat-select>      
+                  </mat-form-field>  
+                </ul>
+                <b>Fecha de inicio </b> 
+                <ul class="list-group" >
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>dd/MM/yyyy</mat-label>
+                      <input matInput [matDatepicker]="pickerInicio">
+                      <mat-datepicker-toggle matSuffix [for]="pickerInicio">       
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #pickerInicio></mat-datepicker>
+                  </mat-form-field>
+                </ul> 
+                <b>Fecha de finalización </b> 
+                <ul class="list-group" >
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>dd/MM/yyyy</mat-label>
+                    <input matInput [matDatepicker]="pickerFinal" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="pickerFinal">        
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #pickerFinal disabled="false"></mat-datepicker>
+                  </mat-form-field>
+                </ul>      
+                  <b>Centros </b> 
+                  <ul class="list-group" >
+                  <mat-form-field appearance="fill"> 
+                        
+                    <mat-label>Centros o sitios</mat-label>
+                    <mat-select>
+                      <mat-option color="primary" *ngFor="let valor of centros" [value]="valor.value">
+                        {{valor.viewValue}}
+                      </mat-option>
+                    </mat-select>      
+                  </mat-form-field>  
+                </ul>
+              </div>
+          </div>
+          
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">   
+          <b>Vínculos</b>                     
+          <div class="card-body box01 ">
+              <div class="list-group">
+                <b>Código</b> 
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input matInput placeholder="">
+                  <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="list-group"> 
+                <b>Nombre</b> 
+                <mat-form-field class="example-full-width">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="">
+                  <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+              </div>      
+              <div class="list-group">
+                <b>Apellido 1</b> 
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input matInput placeholder="">
+                  <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="list-group"> 
+                <b>Apellido 2</b> 
+                <mat-form-field class="example-full-width">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="">
+                  <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+              </div>    
+              <div class="list-group"> 
+                <b>Razón Social</b> 
+                <mat-form-field class="example-full-width">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="">
+                  <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="list-group"> 
+                <b>Relación del Vínculo </b> 
+                <mat-form-field appearance="fill"> 
+                <mat-label>Egresado</mat-label>
+                <mat-select>
+                <mat-option color="primary" *ngFor="let valor of foods" [value]="valor.value">
+                  {{valor.viewValue}}
+                </mat-option>
+                </mat-select>      
+                </mat-form-field> 
+              </div>
+  
+                    <b>Centros </b> 
+                    <ul class="list-group" >
+                    <mat-form-field appearance="fill"> 
+                          
+                      <mat-label>Centros o sitios</mat-label>
+                      <mat-select>
+                        <mat-option color="primary" *ngFor="let valor of centros" [value]="valor.value">
+                          {{valor.viewValue}}
+                        </mat-option>
+                      </mat-select>      
+                    </mat-form-field>  
+                  </ul>
+                  <ul class="list-group" >
+  
+                  <button mat-raised-button color="primary" >Guardar
+                    <mat-icon>done</mat-icon>
+                  </button>   
+                </ul>
+  
+          </div>    
+        </div>                                       
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Boris valida fecha min y max, arregla los estilos e identa codigo que quede todo organizado-->
+  
+  
+    
+  
+  <div class="card"> 
+    <div class="card-body">
+      <div class="row">                     
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">              
+            <div class="card-body">
+                <ul class="list-group">                      
+                  <mat-tab-group>
+                    <mat-tab label="Vínculos ABC Prodein"> Vínculos ABC Prodein </mat-tab>
+                  </mat-tab-group>
+                </ul>
+                
+               
+                  
+                
+            </div>            
+          </div>
+        
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                            
+              <div class="card-body">
+                
+                <br> <br> <br> <br> <br> <br>
+                  <div class="list-group">                     
+                    <button mat-raised-button color="primary" >Cancelar Volver
+                      <mat-icon>arrow_left_alt</mat-icon>
+                    </button>                  
+                  </div>          
+              </div>                                       
+          </div>
+  
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">                  
+              <div class="card-body">
+                           
+                <br> <br> <br> <br> <br> <br>
+                <div class="list-group">                     
+                  <button mat-raised-button color="primary" >Guardar
+                    <mat-icon>done</mat-icon>
+                  </button>                  
+                </div>                
+              </div>                           
+          </div>
+      </div>
+    </div>
+  </div> 

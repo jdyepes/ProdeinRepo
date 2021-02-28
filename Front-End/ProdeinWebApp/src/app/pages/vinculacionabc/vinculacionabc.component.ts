@@ -29,9 +29,9 @@ interface Centro {
 }
 
 @Component({
-  selector: 'app-formvinculacion',
-  templateUrl: './formvinculacion.component.html',
-  styleUrls: ['./formvinculacion.component.css'],
+  selector: 'app-vinculacionabc',
+  templateUrl: './vinculacionabc.component.html',
+  styleUrls: ['./vinculacionabc.component.css'],
   providers: [
     // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
     // application's root module. We provide it at the component level here, due to limitations of
@@ -46,7 +46,7 @@ interface Centro {
   ]
 })
 
-export class FormvinculacionComponent implements OnInit  {
+export class VinculacionabcComponent implements OnInit  {
 
   date = new FormControl(moment());
   
