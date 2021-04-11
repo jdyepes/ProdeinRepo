@@ -1,7 +1,9 @@
 
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   MomentDateAdapter,
@@ -31,6 +33,24 @@ interface Centro {
   viewValue: string;
 }
 
+export interface DonacionesElement {
+  Codigo: number;
+  Identificacion: string;
+  Nombre: string;  
+  Apellidos: string;
+  Pais: string;
+}
+
+export interface DatosPersonalesTab {
+  Codigo: number;
+  Nombre: string; 
+  Apellidos: string;
+  FechaNacimiento: Date;
+  RRSS: string; //redes sociales
+  Correos: string[]; 
+  Telefonos: string[];
+}
+
 @Component({
   selector: 'app-donaciones',
   templateUrl: './donaciones.component.html',
@@ -49,7 +69,25 @@ interface Centro {
   ]
 })
 
-export class DonacionesComponent implements OnInit  {
+export class DonacionesComponent implements OnInit, AfterViewInit  {
+  // tabla personas
+  displayedColumns: string[] = ['Codigo', 'Identificacion', 'Nombre', 'Apellidos', 'Pais'];
+  dataSource = new MatTableDataSource<DonacionesElement>(ELEMENT_DATA);
+  @ViewChild('paginatorDonaciones') paginatorDonaciones!: MatPaginator;
+  // fin tabla personas
+  
+  //==================== Contenido dentro de las Tabs ============================//
+  
+  //** Datos Personales */
+  datosPersonalesColumns: string[] = ['Codigo', 'Nombre', 'Apellidos', 'FechaNacimiento','RRSS','Correos','Telefonos'];
+  datosPersonalesdataSource = new MatTableDataSource<DatosPersonalesTab>(DATOS_PERSONALES);
+  @ViewChild('paginatorDatosPers') paginatorDatosPers!: MatPaginator;
+
+
+  ngAfterViewInit() {      
+    this.dataSource.paginator = this.paginatorDonaciones;
+    this.datosPersonalesdataSource.paginator = this.paginatorDatosPers;
+  }
 
   date = new FormControl(moment());
   
@@ -100,3 +138,30 @@ export class DonacionesComponent implements OnInit  {
 }
 
 
+const ELEMENT_DATA: DonacionesElement[] = [
+  {Codigo: 1, Identificacion: 'V123456789', Nombre: 'Jesus', Apellidos: 'Yepes', Pais: 'Venezuela'},
+  {Codigo: 2, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 3, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 4, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 5, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 6, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 7, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 8, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 9, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 10, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 11, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 12, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 13, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 14, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 15, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 16, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 17, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 18, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 19, Identificacion: '', Nombre: '', Apellidos: '', Pais: ''},
+  {Codigo: 20, Identificacion: 'J-145655555', Nombre: 'Boris', Apellidos: 'Arteta', Pais: 'Venezuela'},
+];
+
+const DATOS_PERSONALES: DatosPersonalesTab[] = [                        //meses de 0-11
+  { Codigo: 1, Nombre: 'Jesus', Apellidos: 'Yepes', FechaNacimiento: new Date(1995,4,12),RRSS:'correo',Correos:['jesus123@gmail.com','jesus456@hotmail.com'], Telefonos:['0412-123-45-56', '0212-254-65-45']},  
+  { Codigo: 2, Nombre: 'Boris', Apellidos: 'Arteta P', FechaNacimiento: new Date(1995,9,23),RRSS:'instagram',Correos:['boris123@gmail.com', 'boriskraka6@hotmail.com'], Telefonos:['0412-123-45-56', '0212-254-65-45']}
+];
