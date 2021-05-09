@@ -66,7 +66,7 @@
                     <mat-form-field appearance="fill">      
                       <mat-label>Cobrados</mat-label>
                       <mat-select>
-                        <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                        <mat-option color="primary" *ngFor="let valor of cobrados" [value]="valor.value">
                           {{valor.viewValue}}
                         </mat-option>
                       </mat-select>      
@@ -81,7 +81,7 @@
                   <mat-form-field appearance="fill">      
                     <mat-label>Periocidad</mat-label>
                     <mat-select>
-                      <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                      <mat-option color="primary" *ngFor="let valor of periocidad" [value]="valor.value">
                         {{valor.viewValue}}
                       </mat-option>
                     </mat-select>      
@@ -98,7 +98,7 @@
                   <mat-form-field appearance="fill">      
                     <mat-label>Forma de Pago</mat-label>
                     <mat-select>
-                      <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                      <mat-option color="primary" *ngFor="let valor of pagos" [value]="valor.value">
                         {{valor.viewValue}}
                       </mat-option>
                     </mat-select>      
@@ -127,7 +127,7 @@
                 <mat-form-field appearance="fill">      
                   <mat-label>Concepto</mat-label>
                   <mat-select>
-                    <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                    <mat-option color="primary" *ngFor="let valor of concepto" [value]="valor.value">
                       {{valor.viewValue}}
                     </mat-option>
                   </mat-select>      
@@ -137,7 +137,7 @@
                 <mat-form-field appearance="fill">      
                   <mat-label>SubConcepto</mat-label>
                   <mat-select>
-                    <mat-option color="primary" *ngFor="let valor of estados" [value]="valor.value">
+                    <mat-option color="primary" *ngFor="let valor of subconcepto" [value]="valor.value">
                       {{valor.viewValue}}
                     </mat-option>
                   </mat-select>      

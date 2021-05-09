@@ -135,6 +135,65 @@ export class DonacionesComponent implements OnInit, AfterViewInit  {
     {value: '2', viewValue: 'Euros'}    
     
   ];
+
+
+  pagos: any[] = [
+    {value: '0', viewValue: 'Efectivo'},
+    {value: '1', viewValue: 'Transferencia'},
+    {value: '2', viewValue: 'Puntos de Venta'},   
+    {value: '3', viewValue: 'GoFundMe'},   
+    {value: '4', viewValue: 'Online'}    
+
+  ];
+
+  concepto: any[] = [
+    {value: '0', viewValue: 'Socio Colaborardor'},
+    {value: '1', viewValue: 'Educa y Ama'},
+    {value: '2', viewValue: 'Misioneros'},   
+    {value: '3', viewValue: 'Misioneras'},   
+    {value: '4', viewValue: 'Seguridad'} ,
+    {value: '5', viewValue: 'Alimentaria'} ,
+    {value: '6', viewValue: 'Emprendimiento'} ,
+    {value: '7', viewValue: 'Dale movimiento A'} ,
+    {value: '8', viewValue: 'Tus cosas'} ,
+    {value: '9', viewValue: 'Provida'} ,
+    {value: '10', viewValue: 'Testimonio'} 
+
+  ];
+
+  subconcepto: any[] = [
+    {value: '0', viewValue: 'Centros'},
+    {value: '1', viewValue: 'Ue Nse'},
+    {value: '2', viewValue: 'Ue MVM'},   
+    {value: '3', viewValue: 'Maca'},   
+    {value: '4', viewValue: 'Nazareno'} ,
+    {value: '5', viewValue: 'Coche'} ,
+    {value: '6', viewValue: 'Encantado'} ,
+    {value: '7', viewValue: 'Tacarigua'} ,
+    {value: '8', viewValue: 'Valencia'} ,
+    {value: '9', viewValue: 'Barquisimeto'} ,
+    {value: '10', viewValue: 'La Floresta'} ,
+    {value: '11', viewValue: 'Otros'} ,
+    {value: '12', viewValue: 'Subconceptos'} ,
+    {value: '13', viewValue: 'Cam'} ,
+    {value: '14', viewValue: 'Formación'} 
+
+  ];
+
+  periocidad: any[] = [
+    {value: '0', viewValue: 'Mensual'},
+    {value: '1', viewValue: 'Semestral'},
+    {value: '2', viewValue: 'Anual'},   
+    {value: '3', viewValue: 'Ocasional'} 
+
+  ];
+
+  cobrados: any[] = [
+    {value: '0', viewValue: 'Cobrado'},
+    {value: '1', viewValue: 'Por cobrar'}
+
+
+  ];
 }
 
 
